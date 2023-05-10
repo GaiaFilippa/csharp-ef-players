@@ -24,3 +24,12 @@ using (PlayerContext db2 = new PlayerContext())
 }
 
 Console.WriteLine(player2.ToString());
+
+
+using (PlayerContext db = new PlayerContext())
+{
+    db.Remove(player1);
+    db.SaveChanges();
+}
+
+Console.WriteLine(player1.ToString());

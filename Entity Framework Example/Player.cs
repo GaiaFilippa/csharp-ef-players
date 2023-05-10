@@ -30,6 +30,7 @@ namespace Entity_Framework_Example
         }
 
 
+
         public override string ToString()
         {
             string rapprStringa = "- Nome: " + Name + ", Cognome: " + Surname + ", Punteggio: " + Score + ", Gare: " + PlayedGames + ", Vittorie: " + Victories;
