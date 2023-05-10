@@ -13,7 +13,7 @@ namespace Entity_Framework_Example
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=Sport;Integrated Security=True;Pooling=False");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=Sport;Integrated Security=True;Pooling=False;TrustServerCertificate=True");
         }
     }
 }

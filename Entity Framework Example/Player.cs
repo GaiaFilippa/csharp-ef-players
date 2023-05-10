@@ -18,14 +18,21 @@ namespace Entity_Framework_Example
         public int Victories { get; set; }
 
 
-        public Player(int playerId, string name, string surname, int score, int playedGames, int victories)
+        public Player(string name, string surname, int score, int playedGames, int victories)
         {
-            PlayerId = playerId;
+            
             Name = name;
             Surname = surname;
             Score = score;
             PlayedGames = playedGames;
             Victories = victories;
         }
+
+        public override string ToString()
+        {
+            string rapprStringa = "- Nome: " + Name + ", Cognome: " + Surname + ", Punteggio: " + Score + ", Gare: " + PlayedGames + ", Vittorie: " + Victories;
+            return rapprStringa;
+        }
+
     }
 }
