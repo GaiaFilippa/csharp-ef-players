@@ -20,13 +20,15 @@ namespace Entity_Framework_Example
 
         public Player(string name, string surname, int score, int playedGames, int victories)
         {
-            
+
             Name = name;
             Surname = surname;
             Score = score;
             PlayedGames = playedGames;
             Victories = victories;
+
         }
+
 
         public override string ToString()
         {
