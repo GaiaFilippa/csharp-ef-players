@@ -44,6 +44,7 @@ Console.WriteLine("1. Insert a new player");
 Console.WriteLine("2. Search and print a player by Id");
 Console.WriteLine("3. Search and print a player by its Name and Surname");
 Console.WriteLine("4. Modify player matches and score of player by its Id");
+Console.WriteLine("5. Insert a new team");
 while (go)
 {
     Console.Write("Choose an option: ");
@@ -60,6 +61,7 @@ while (go)
             string playerName = Console.ReadLine();
             Console.WriteLine("Insert the surname : ");
             string playerSurname = Console.ReadLine();
+
             using (PlayerContext db = new PlayerContext())
             {
                 Random random = new Random();
@@ -124,6 +126,32 @@ while (go)
 
             }
             break;
+
+        case 5:
+
+            Console.Write("Insert the team name: ");
+            string teamName = Console.ReadLine();
+            Console.WriteLine("Insert the city: ");
+            string city = Console.ReadLine();
+            Console.WriteLine("Insert the city: ");
+            string coach = Console.ReadLine();
+            Console.WriteLine("Insert the team colors: ");
+            string colors = Console.ReadLine();
+
+            using (PlayerContext db = new PlayerContext())
+            {
+                Team newTeam = new Team(teamName, city, coach, colors);
+                db.Add(newTeam);
+                db.SaveChanges();
+            }
+
+                break;
+
+
+
+
+
+
 
         default:
             Console.WriteLine("Non hai inserito un'opzione valida! Ritenta!");
