@@ -17,6 +17,9 @@ namespace Entity_Framework_Example
         public int PlayedGames { get; set; }
         public int Victories { get; set; }
 
+        public int TeamId { get; set; }
+        public Team Team { get; set; }
+
 
         public Player(string name, string surname, int score, int playedGames, int victories)
         {
@@ -26,6 +29,8 @@ namespace Entity_Framework_Example
             Score = score;
             PlayedGames = playedGames;
             Victories = victories;
+
+            // TeamId = teamId;
 
         }
 

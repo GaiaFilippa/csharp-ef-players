@@ -45,6 +45,7 @@ Console.WriteLine("2. Search and print a player by Id");
 Console.WriteLine("3. Search and print a player by its Name and Surname");
 Console.WriteLine("4. Modify player matches and score of player by its Id");
 Console.WriteLine("5. Insert a new team");
+Console.WriteLine("6. Search and print a team by id, plus insert 3 players:");
 while (go)
 {
     Console.Write("Choose an option: ");
@@ -133,7 +134,7 @@ while (go)
             string teamName = Console.ReadLine();
             Console.WriteLine("Insert the city: ");
             string city = Console.ReadLine();
-            Console.WriteLine("Insert the city: ");
+            Console.WriteLine("Insert the coach: ");
             string coach = Console.ReadLine();
             Console.WriteLine("Insert the team colors: ");
             string colors = Console.ReadLine();
@@ -147,9 +148,37 @@ while (go)
 
                 break;
 
+        case 6:
+            Console.Write("Insert the Team Id to search: ");
+            int teamIdToSearch = int.Parse(Console.ReadLine());
+
+            using (PlayerContext db = new PlayerContext())
+            {
+                Team teamFound = db.Team.Where(team => team.TeamId == teamIdToSearch).First();
+                Console.WriteLine(teamFound);
+
+            }
+
+            Console.Write("Insert the name of the player: ");
+            string newPlayerName = Console.ReadLine();
+            Console.WriteLine("Insert the surname : ");
+            string newPlayerSurname = Console.ReadLine();
+
+            using (PlayerContext db = new PlayerContext())
+            {
+                Random random = new Random();
+                int randomScore = random.Next(1, 11);
+                int randomNumberOfMatches = random.Next(1, 101);
+                int randomNumberOfVicories = random.Next(1, randomNumberOfMatches);
+                Player newPlayer = new Player(newPlayerName, newPlayerSurname, randomNumberOfMatches, randomNumberOfVicories, randomScore);
+                db.Add(newPlayer);
+                db.SaveChanges();
+
+                Team playersInTeam = db.Team.Where(m => m.TeamId == 1).Include(m => m.Players).FirstOrDefault();
+            }
 
 
-
+            break;
 
 
 
