@@ -10,6 +10,7 @@ namespace Entity_Framework_Example
     public class PlayerContext : DbContext
     {
         public DbSet<Player> Player { get; set; }
+        public DbSet<Team> Team { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
