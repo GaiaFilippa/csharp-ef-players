@@ -33,7 +33,7 @@ namespace Entity_Framework_Example
 
         public override string ToString()
         {
-            string rapprStringa = "- Nome: " + Name + ", Cognome: " + Surname + ", Punteggio: " + Score + ", Gare: " + PlayedGames + ", Vittorie: " + Victories;
+            string rapprStringa = "- Nome: " + Name + ", Cognome: " + Surname + ", Gare: " + PlayedGames + ", Vittorie: " + Victories + ", Punteggio: " + Score;
             return rapprStringa;
         }
 
